@@ -1,0 +1,82 @@
+<P>:
+    Label:
+        text:"Please enter a valid letter"
+        size_hint:0.6,0.2
+        pos_hint:{"x":0.2,"top":1}
+
+<WindowManager>:
+    MainPage:
+    SecondPage:
+    Code:
+
+<MainPage>:
+    name:"main"
+
+    Button:
+        text: 'Letters'
+        pos_hint : {'x':.4,'y':.2,'left':.3}
+        on_release:
+            app.root.current = "second"
+            root.manager.transition.direction = "left"
+        font_size: 20 
+        background_color: (1, 1, 1, 1) 
+        color: (1, 1, 1, 1)
+        size_hint:.4,.3
+    Button:
+        text: 'Special'
+        pos_hint : {'x':.4,'y':.5,'left':.3}
+        font_size: 20 
+        background_color: (1, 1, 1, 1) 
+        color: (1, 1, 1, 1)
+        size_hint:.4,.3
+
+
+<SecondPage>:
+    letter:letter
+    name:"second"
+    GridLayout:
+        cols:1
+        GridLayout:
+            cols:2
+            Label:
+                text:"Enter Letter:"
+            TextInput:
+                id:letter
+                multiline:False
+        Button:
+            text : "Enter"
+            on_release:
+                root.Enter()
+                app.root.current = "code"
+                
+        Button:
+            text:"Go Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<Code>:
+    name:"code"
+    GridLayout:
+        cols:1
+        Label:
+            id: main_label  # id for accessing this Label
+
+        GridLayout:
+            cols:2
+            Button:
+                text:"Go Back"
+                on_release:
+                    app.root.current = "second"
+                    root.manager.transition.direction = "right"
+            Button:
+                text:"Copy"
+                on_release:
+                    root.copy()
+        
+    
+    
+   
+
+    
+

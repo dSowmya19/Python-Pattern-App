@@ -1,0 +1,14 @@
+n = int(input())
+for i in range(n):
+    for j in range(n):
+        if(i==0 or i==n-1 or i==n//2):
+            print("7",end="")
+        elif(j==0 and i<n//2):
+            print("7",end="")
+        elif(j==n-1 and i>n//2):
+            print("7",end="")
+        else:
+            print(" ",end="")
+    print()
+print()
+print()
